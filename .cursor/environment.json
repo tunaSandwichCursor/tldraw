@@ -1,0 +1,10 @@
+{
+	"install": "corepack enable && yarn",
+	"terminals": [
+		{
+			"command": "yarn dev",
+			"description": "Starts the examples app (port 5420) along with local bemo-worker and image-resize-worker for multiplayer and image support."
+		}
+	],
+	"ports": [5420]
+}
