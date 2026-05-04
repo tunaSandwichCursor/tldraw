@@ -196,3 +196,23 @@ Dependencies:
 - Use semantic PR titles for pull requests: `<type>(<scope>): <description>`.
 - Never add yourself or an AI tool as a co-author.
 - See `skills/pr/` and `skills/issue/` for GitHub workflows, and `skills/write-pr/` and `skills/write-issue/` for repository content standards.
+
+## Cursor Cloud specific instructions
+
+### Environment
+
+- Node.js 20 is installed via nvm. Source nvm before running commands: `export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"`.
+- Corepack is enabled globally; Yarn 4.12.0 is managed via `packageManager` in root `package.json`.
+- Corepack may prompt for download confirmation. Set `COREPACK_ENABLE_DOWNLOAD_PROMPT=0` to suppress it in non-interactive contexts.
+
+### Running services
+
+- `yarn dev` starts three services: the examples app (Vite on port 5420), the bemo multiplayer worker, and the image-resize worker (port 8786). This is the primary development loop.
+- The image-resize worker logs TLS connection errors on startup due to network restrictions in the cloud environment; these are harmless and do not affect SDK development.
+- Dotcom development (`yarn dev-app`) requires Docker for PostgreSQL/pgbouncer and is out of scope for the default cloud setup.
+
+### Verification commands
+
+- Lint, test, build, and typecheck commands are documented in the "Common commands" section above.
+- For a quick smoke test, run `cd packages/editor && yarn test run` (800 tests, ~5s).
+- For broader validation, `cd packages/tldraw && yarn test run` covers default shapes, tools, and integration tests.
