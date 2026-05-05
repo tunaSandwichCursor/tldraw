@@ -231,6 +231,8 @@ function _getGeoPath(
 		case 'x-box':
 			return getXBoxPath(w, h, sw, shape.props.dash, isFilled)
 
+		case 'crescent':
+			return getCrescentPath(w, h, isFilled)
 		case 'cloud':
 			return getCloudPath(w, h, shape.id, shape.props.size, shape.props.scale, isFilled)
 		default: {
@@ -566,4 +568,26 @@ function getCloudPath(
 	}
 
 	return path.close()
+}
+
+/* -------------------- Crescent -------------------- */
+
+function getCrescentPath(w: number, h: number, isFilled: boolean) {
+	const cx = w / 2
+	const cy = h / 2
+
+	const outerRx = cx
+	const outerRy = cy
+
+	const innerRx = outerRx * 0.65
+	const innerRy = outerRy * 0.8
+
+	const indentX = w * 0.25
+
+	return new PathBuilder()
+		.moveTo(cx, 0, { geometry: { isFilled } })
+		.arcTo(outerRx, outerRy, false, true, 0, cx, h)
+		.arcTo(innerRx, innerRy, false, false, 0, cx + indentX, cy)
+		.arcTo(innerRx, innerRy, false, false, 0, cx, 0)
+		.close()
 }

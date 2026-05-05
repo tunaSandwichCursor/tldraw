@@ -182,6 +182,43 @@ describe('Resizing geo shapes with labels', () => {
 	})
 })
 
+describe('Crescent geo shape', () => {
+	const geoId = createShapeId('crescent')
+
+	beforeEach(() => {
+		editor.createShapes([
+			{
+				id: geoId,
+				type: 'geo',
+				x: 0,
+				y: 0,
+				props: { geo: 'crescent', w: 200, h: 200 },
+			},
+		])
+	})
+
+	test('creates a crescent shape', () => {
+		const shape = editor.getShape<TLGeoShape>(geoId)!
+		expect(shape.props.geo).toBe('crescent')
+	})
+
+	test('crescent snaps only to center (blobby shape)', () => {
+		const shape = editor.getShape<TLGeoShape>(geoId)!
+		const util = editor.getShapeUtil('geo')
+		const geometry = util.getGeometry(shape)
+		const snapGeometry = util.getHandleSnapGeometry(shape)
+		expect(snapGeometry.points).toEqual([geometry.bounds.center])
+	})
+
+	test('crescent geometry has a valid outline', () => {
+		const shape = editor.getShape<TLGeoShape>(geoId)!
+		const util = editor.getShapeUtil('geo')
+		const geometry = util.getGeometry(shape) as Group2d
+		expect(geometry.bounds.w).toBeGreaterThan(0)
+		expect(geometry.bounds.h).toBeGreaterThan(0)
+	})
+})
+
 describe('GeoShapeUtil.configure with customGeoTypes', () => {
 	// Snapshot the built-in geo values so we can clean up any custom keys added
 	// during these tests. `GeoShapeUtil.configure({ customGeoTypes })` mutates

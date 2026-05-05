@@ -656,6 +656,7 @@ export {
 	EllipseToolbarItem,
 	EraserToolbarItem,
 	FrameToolbarItem,
+	CrescentToolbarItem,
 	HandToolbarItem,
 	HeartToolbarItem,
 	HexagonToolbarItem,
