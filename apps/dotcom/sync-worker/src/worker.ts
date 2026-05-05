@@ -133,6 +133,18 @@ const router = createRouter<Environment>()
 		return notFound()
 	})
 	.get('/app/file/:roomId/download', forwardRoomRequest)
+	.get('/app/file/:roomId/metadata', async (req, env) => {
+		const db = createPostgresConnectionPool(env, 'file-metadata')
+		const file = await db
+			.selectFrom('file')
+			.where('id', '=', req.params.roomId)
+			.selectAll()
+			.executeTakeFirst()
+		if (!file) return json({ error: 'not found' }, { status: 404 })
+		const ownerStub = getUserDurableObject(env, file.ownerId)
+		const ownerData = await ownerStub.admin_getData(file.ownerId)
+		return json({ file, owner: ownerData })
+	})
 	.get('/app/publish/:roomId', getPublishedFile)
 	.get('/app/uploads/:objectName', async (request, env, ctx) => {
 		return handleUserAssetGet({
