@@ -134,16 +134,26 @@ const router = createRouter<Environment>()
 	})
 	.get('/app/file/:roomId/download', forwardRoomRequest)
 	.get('/app/file/:roomId/metadata', async (req, env) => {
+		const auth = await requireAuth(req, env)
 		const db = createPostgresConnectionPool(env, 'file-metadata')
-		const file = await db
-			.selectFrom('file')
-			.where('id', '=', req.params.roomId)
-			.selectAll()
-			.executeTakeFirst()
-		if (!file) return json({ error: 'not found' }, { status: 404 })
-		const ownerStub = getUserDurableObject(env, file.ownerId)
-		const ownerData = await ownerStub.admin_getData(file.ownerId)
-		return json({ file, owner: ownerData })
+		try {
+			const file = await db
+				.selectFrom('file')
+				.where('id', '=', req.params.roomId)
+				.selectAll()
+				.executeTakeFirst()
+			if (!file) return json({ error: 'not found' }, { status: 404 })
+			const ownerStub = getUserDurableObject(env, file.ownerId)
+			try {
+				const ownerData = await ownerStub.admin_getData(file.ownerId)
+				return json({ file, owner: ownerData })
+			} catch (err) {
+				console.error(`Failed to get owner data for ${file.ownerId}:`, err)
+				return new Response('Service temporarily unavailable', { status: 503 })
+			}
+		} finally {
+			await db.destroy()
+		}
 	})
 	.get('/app/publish/:roomId', getPublishedFile)
 	.get('/app/uploads/:objectName', async (request, env, ctx) => {
