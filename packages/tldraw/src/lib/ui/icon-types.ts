@@ -80,6 +80,7 @@ export type TLUiIconType =
 	| 'geo-arrow-up'
 	| 'geo-check-box'
 	| 'geo-cloud'
+	| 'geo-crescent'
 	| 'geo-diamond'
 	| 'geo-ellipse'
 	| 'geo-heart'
@@ -245,6 +246,7 @@ export const iconTypes = [
 	'geo-arrow-up',
 	'geo-check-box',
 	'geo-cloud',
+	'geo-crescent',
 	'geo-diamond',
 	'geo-ellipse',
 	'geo-heart',

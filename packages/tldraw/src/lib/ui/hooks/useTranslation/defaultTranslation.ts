@@ -238,6 +238,7 @@ export const DEFAULT_TRANSLATION = {
 	'tool.arrow-up': 'Arrow up',
 	'tool.arrow': 'Arrow',
 	'tool.cloud': 'Cloud',
+	'tool.crescent': 'Crescent',
 	'tool.diamond': 'Diamond',
 	'tool.ellipse': 'Ellipse',
 	'tool.heart': 'Heart',

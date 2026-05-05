@@ -197,6 +197,7 @@ export function getAssetUrlsByImport(opts) {
 			'geo-arrow-up': iconsIcon0MergedSvg2 + '#geo-arrow-up',
 			'geo-check-box': iconsIcon0MergedSvg2 + '#geo-check-box',
 			'geo-cloud': iconsIcon0MergedSvg2 + '#geo-cloud',
+			'geo-crescent': iconsIcon0MergedSvg2 + '#geo-crescent',
 			'geo-diamond': iconsIcon0MergedSvg2 + '#geo-diamond',
 			'geo-ellipse': iconsIcon0MergedSvg2 + '#geo-ellipse',
 			'geo-heart': iconsIcon0MergedSvg2 + '#geo-heart',

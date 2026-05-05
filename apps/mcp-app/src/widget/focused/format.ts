@@ -132,6 +132,7 @@ export type FocusedGeoShapeType =
 	| 'fat-arrow-left'
 	| 'fat-arrow-up'
 	| 'fat-arrow-down'
+	| 'crescent'
 
 export const FOCUSED_TO_GEO_TYPES: Record<FocusedGeoShapeType, TLGeoShapeGeoStyle> = {
 	rectangle: 'rectangle',
@@ -144,6 +145,7 @@ export const FOCUSED_TO_GEO_TYPES: Record<FocusedGeoShapeType, TLGeoShapeGeoStyl
 	'x-box': 'x-box',
 	'check-box': 'check-box',
 	heart: 'heart',
+	crescent: 'crescent',
 	pentagon: 'pentagon',
 	octagon: 'octagon',
 	star: 'star',
@@ -167,6 +169,7 @@ export const GEO_TO_FOCUSED_TYPES: Record<TLGeoShapeGeoStyle, FocusedGeoShapeTyp
 	'x-box': 'x-box',
 	'check-box': 'check-box',
 	heart: 'heart',
+	crescent: 'crescent',
 	pentagon: 'pentagon',
 	octagon: 'octagon',
 	star: 'star',

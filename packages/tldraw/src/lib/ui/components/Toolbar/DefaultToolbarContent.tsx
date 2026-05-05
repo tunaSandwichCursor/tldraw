@@ -27,6 +27,7 @@ export function DefaultToolbarContent() {
 
 			<CloudToolbarItem />
 			<HeartToolbarItem />
+			<CrescentToolbarItem />
 			<XBoxToolbarItem />
 			<CheckBoxToolbarItem />
 
@@ -152,6 +153,11 @@ export function PentagonToolbarItem() {
 /** @public @react */
 export function HeartToolbarItem() {
 	return <ToolbarItem tool="heart" />
+}
+
+/** @public @react */
+export function CrescentToolbarItem() {
+	return <ToolbarItem tool="crescent" />
 }
 
 /** @public @react */

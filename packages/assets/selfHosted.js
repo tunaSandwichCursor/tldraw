@@ -114,6 +114,7 @@ export function getAssetUrls(opts) {
 			'geo-arrow-up': iconsIcon0MergedSvg + '#geo-arrow-up',
 			'geo-check-box': iconsIcon0MergedSvg + '#geo-check-box',
 			'geo-cloud': iconsIcon0MergedSvg + '#geo-cloud',
+			'geo-crescent': iconsIcon0MergedSvg + '#geo-crescent',
 			'geo-diamond': iconsIcon0MergedSvg + '#geo-diamond',
 			'geo-ellipse': iconsIcon0MergedSvg + '#geo-ellipse',
 			'geo-heart': iconsIcon0MergedSvg + '#geo-heart',

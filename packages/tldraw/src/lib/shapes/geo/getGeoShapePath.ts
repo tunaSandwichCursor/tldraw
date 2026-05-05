@@ -172,6 +172,17 @@ function _getGeoPath(
 				.cubicBezierTo(cx, h, w, k * 2.5, o * 2.5, k * 3)
 				.close()
 		}
+		case 'crescent': {
+			// Outer arc forms the back of the crescent (bulging left), inner arc
+			// forms the inside of the bite (bulging left less). Horns meet at the
+			// right edge (top-right and bottom-right of the bounding box).
+			const innerRx = w * 0.6
+			return new PathBuilder()
+				.moveTo(w, 0, { geometry: { isFilled } })
+				.arcTo(w, cy, false, false, 0, w, h)
+				.arcTo(innerRx, cy, false, true, 0, w, 0)
+				.close()
+		}
 		case 'hexagon':
 			return PathBuilder.lineThroughPoints(getPolygonVertices(w, h, 6), {
 				geometry: { isFilled },
