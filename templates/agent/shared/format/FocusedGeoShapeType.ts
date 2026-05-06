@@ -21,6 +21,7 @@ export const FocusedGeoShapeTypeSchema = z.enum([
 	'fat-arrow-left',
 	'fat-arrow-up',
 	'fat-arrow-down',
+	'crescent',
 ])
 
 export type FocusedGeoShapeType = z.infer<typeof FocusedGeoShapeTypeSchema>

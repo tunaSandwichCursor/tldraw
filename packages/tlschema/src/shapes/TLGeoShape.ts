@@ -60,6 +60,7 @@ export const GeoShapeGeoStyle = StyleProp.defineEnum('tldraw:geo', {
 		'x-box',
 		'check-box',
 		'heart',
+		'crescent',
 	],
 })
 

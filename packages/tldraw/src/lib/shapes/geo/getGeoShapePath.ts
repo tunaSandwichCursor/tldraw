@@ -231,6 +231,18 @@ function _getGeoPath(
 		case 'x-box':
 			return getXBoxPath(w, h, sw, shape.props.dash, isFilled)
 
+		case 'crescent': {
+			const outerRx = w / 2
+			const outerRy = h / 2
+			const innerRx = outerRx * 0.7
+			const innerRy = outerRy * 0.7
+			return new PathBuilder()
+				.moveTo(w, 0, { geometry: { isFilled } })
+				.arcTo(outerRx, outerRy, true, false, 0, w, h)
+				.arcTo(innerRx, innerRy, false, true, 0, w, 0)
+				.close()
+		}
+
 		case 'cloud':
 			return getCloudPath(w, h, shape.id, shape.props.size, shape.props.scale, isFilled)
 		default: {

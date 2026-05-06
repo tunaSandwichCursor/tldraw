@@ -254,3 +254,36 @@ describe('GeoShapeUtil.configure with customGeoTypes', () => {
 		}
 	})
 })
+
+describe('Crescent geo shape', () => {
+	const crescentId = createShapeId('crescent')
+
+	beforeEach(() => {
+		editor.createShapes([
+			{
+				id: crescentId,
+				type: 'geo',
+				x: 0,
+				y: 0,
+				props: { geo: 'crescent', w: 200, h: 200 },
+			},
+		])
+	})
+
+	test('creates a crescent shape with correct geometry', () => {
+		const shape = editor.getShape<TLGeoShape>(crescentId)!
+		expect(shape.props.geo).toBe('crescent')
+		const geometry = editor.getShapeUtil('geo').getGeometry(shape)
+		expect(geometry).toBeDefined()
+		expect(geometry.bounds.width).toBeGreaterThan(0)
+		expect(geometry.bounds.height).toBeGreaterThan(0)
+	})
+
+	test('snaps to center only (blobby)', () => {
+		const shape = editor.getShape<TLGeoShape>(crescentId)!
+		const snapGeo = editor.getShapeUtil('geo').getHandleSnapGeometry!(shape)
+		expect(snapGeo.points).toHaveLength(1)
+		const geometry = editor.getShapeUtil('geo').getGeometry(shape)
+		expect(snapGeo.points![0]).toMatchObject(geometry.bounds.center)
+	})
+})

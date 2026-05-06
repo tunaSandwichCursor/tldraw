@@ -92,6 +92,7 @@ const GEO_TO_FOCUSED_TYPES: Record<TLGeoShapeGeoStyle, FocusedGeoShapeType> = {
 	'arrow-left': 'fat-arrow-left',
 	'arrow-up': 'fat-arrow-up',
 	'arrow-down': 'fat-arrow-down',
+	crescent: 'crescent',
 } as const
 
 export function convertTldrawIdToSimpleId(id: TLShapeId): SimpleShapeId {
