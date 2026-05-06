@@ -100,6 +100,7 @@ export type AssetUrls = {
 		'geo-arrow-up': string
 		'geo-check-box': string
 		'geo-cloud': string
+		'geo-crescent': string
 		'geo-diamond': string
 		'geo-ellipse': string
 		'geo-heart': string

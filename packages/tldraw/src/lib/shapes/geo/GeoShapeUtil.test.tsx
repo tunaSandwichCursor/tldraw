@@ -182,6 +182,59 @@ describe('Resizing geo shapes with labels', () => {
 	})
 })
 
+describe('Crescent geo shape', () => {
+	const crescentId = createShapeId('crescent')
+
+	test('can create a crescent geo shape', () => {
+		editor.createShapes([
+			{
+				id: crescentId,
+				type: 'geo',
+				props: { geo: 'crescent', w: 200, h: 200 },
+			},
+		])
+
+		const shape = editor.getShape<TLGeoShape>(crescentId)!
+		expect(shape.props.geo).toBe('crescent')
+		expect(shape.props.w).toBe(200)
+		expect(shape.props.h).toBe(200)
+	})
+
+	test('crescent uses center-only snapping (blobby)', () => {
+		editor.createShapes([
+			{
+				id: crescentId,
+				type: 'geo',
+				props: { geo: 'crescent', w: 200, h: 200 },
+			},
+		])
+
+		const shape = editor.getShape<TLGeoShape>(crescentId)!
+		const util = editor.getShapeUtil('geo') as GeoShapeUtil
+		const geometry = util.getGeometry(shape) as Group2d
+		const snapData = util.getHandleSnapGeometry(shape)
+		expect(snapData.points!).toHaveLength(1)
+		expect(snapData.points![0]).toEqual(geometry.bounds.center)
+	})
+
+	test('crescent generates a valid path', () => {
+		editor.createShapes([
+			{
+				id: crescentId,
+				type: 'geo',
+				props: { geo: 'crescent', w: 200, h: 200 },
+			},
+		])
+
+		const shape = editor.getShape<TLGeoShape>(crescentId)!
+		const util = editor.getShapeUtil('geo') as GeoShapeUtil
+		const geometry = util.getGeometry(shape) as Group2d
+		expect(geometry).toBeDefined()
+		expect(geometry.bounds.width).toBeGreaterThan(0)
+		expect(geometry.bounds.height).toBeGreaterThan(0)
+	})
+})
+
 describe('GeoShapeUtil.configure with customGeoTypes', () => {
 	// Snapshot the built-in geo values so we can clean up any custom keys added
 	// during these tests. `GeoShapeUtil.configure({ customGeoTypes })` mutates

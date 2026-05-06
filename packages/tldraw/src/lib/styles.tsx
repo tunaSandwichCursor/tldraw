@@ -160,6 +160,7 @@ export const STYLES = {
 		{ value: 'x-box', icon: 'geo-x-box' },
 		{ value: 'check-box', icon: 'geo-check-box' },
 		{ value: 'heart', icon: 'geo-heart' },
+		{ value: 'crescent', icon: 'geo-crescent' },
 	],
 	arrowKind: [
 		{ value: 'arc', icon: 'arrow-arc' },

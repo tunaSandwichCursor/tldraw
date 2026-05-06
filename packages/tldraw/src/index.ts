@@ -650,6 +650,7 @@ export {
 	AssetToolbarItem,
 	CheckBoxToolbarItem,
 	CloudToolbarItem,
+	CrescentToolbarItem,
 	DefaultToolbarContent,
 	DiamondToolbarItem,
 	DrawToolbarItem,

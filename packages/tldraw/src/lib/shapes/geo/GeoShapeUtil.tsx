@@ -346,6 +346,7 @@ export class GeoShapeUtil extends BaseBoxShapeUtil<TLGeoShape> {
 				// poly-line type shapes hand snap points for each vertex & the center
 				return { outline: outline, points: [...outline.vertices, geometry.bounds.center] }
 			case 'cloud':
+			case 'crescent':
 			case 'ellipse':
 			case 'heart':
 			case 'oval':
