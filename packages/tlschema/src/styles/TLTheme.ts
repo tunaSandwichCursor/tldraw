@@ -87,6 +87,7 @@ export interface TLThemeDefaultColors {
 	'light-green': TLDefaultColor
 	'light-red': TLDefaultColor
 	red: TLDefaultColor
+	sunset: TLDefaultColor
 	white: TLDefaultColor
 }
 

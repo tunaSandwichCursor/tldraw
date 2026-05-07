@@ -30,6 +30,7 @@ const defaultColorNames: TLDefaultColorStyle[] = [
 	'light-green',
 	'light-red',
 	'red',
+	'sunset',
 	'white',
 ] as const
 

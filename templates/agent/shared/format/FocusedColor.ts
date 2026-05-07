@@ -13,6 +13,7 @@ export const FocusedColor = z.enum([
 	'violet',
 	'light-violet',
 	'grey',
+	'sunset',
 	'white',
 ])
 

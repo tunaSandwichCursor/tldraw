@@ -153,6 +153,7 @@ export const DEFAULT_TRANSLATION = {
 	'color-style.light-violet': 'Light violet',
 	'color-style.orange': 'Orange',
 	'color-style.red': 'Red',
+	'color-style.sunset': 'Sunset',
 	'color-style.violet': 'Violet',
 	'color-style.yellow': 'Yellow',
 	'fill-style.none': 'None',

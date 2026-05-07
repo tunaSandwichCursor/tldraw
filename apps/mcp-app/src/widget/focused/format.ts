@@ -19,6 +19,7 @@ export const FOCUSED_COLORS = [
 	'violet',
 	'light-violet',
 	'grey',
+	'sunset',
 	'white',
 ] as const
 

@@ -1728,6 +1728,8 @@ export interface TLThemeDefaultColors {
     // (undocumented)
     solid: string;
     // (undocumented)
+    sunset: TLDefaultColor;
+    // (undocumented)
     text: string;
     // (undocumented)
     violet: TLDefaultColor;

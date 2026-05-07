@@ -152,6 +152,7 @@ export type TLUiTranslationKey =
 	| 'color-style.light-violet'
 	| 'color-style.orange'
 	| 'color-style.red'
+	| 'color-style.sunset'
 	| 'color-style.violet'
 	| 'color-style.yellow'
 	| 'fill-style.none'
