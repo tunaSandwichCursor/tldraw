@@ -1880,7 +1880,7 @@ const THEMES: UITheme[] = [
 				'tla-color-inactive': '#9f6b88',
 				'tla-color-inactive-hover': '#b27a98',
 				'tla-color-primary': '#f07ac5',
-				'tla-color-primary-hover': '#ff8a6a',
+				'tla-color-primary-hover': '#f395d1',
 				'tla-color-secondary': '#341936',
 				'tla-color-secondary-hover': '#442244',
 				'tla-color-secondary-border': '#542c4f',
